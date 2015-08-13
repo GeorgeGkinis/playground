@@ -3,7 +3,7 @@ var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var os = require('os');
-var SerialPort = require('serialport').SerialPort
+var SerialPort = require("serialport").SerialPort;
 var serialPort = new SerialPort("/dev/pts/4",  false); // this is the openImmediately flag [default is true]
 
 var message ={};
