@@ -4,9 +4,9 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var os = require('os');
 var SerialPort = require("serialport").SerialPort;
-var serialPort = new SerialPort("/dev/pts/11",  false); // this is the openImmediately flag [default is true]
+var serialPort = new SerialPort("/dev/ttyS1",  false); // this is the openImmediately flag [default is true]
 
-var serialdata ={};
+
 server.listen(8080);
 
 
@@ -15,13 +15,7 @@ app.get('/', function (req, res) {
 });
 
 io.on('connection', function (socket) {
-/*
-    setInterval(function () {
-        var date = new Date();
-        socket.emit('time',{time  : date});
 
-    }, 1000);
-*/
     socket.on('my other event', function (data) {
         console.log(data);
     });
@@ -35,8 +29,9 @@ serialPort.open(function (error) {
     } else {
         console.log('open');
         serialPort.on('data', function(data) {
+           var message = { "Pot_1" : data.toString()};
 
-            io.emit('time', JSON.parse(data));
+            io.emit('time',message);
             //console.log(data.toString());
 
         });
