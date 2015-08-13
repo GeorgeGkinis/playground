@@ -1,10 +1,37 @@
-HELLO AGAIN!
+<!DOCTYPE html>
 
-<script src="/socket.io/socket.io.js"></script>
-<script>
+<html>
+<head>
+    <title>Echo Chamber</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+
+<div>
+    <input type="text" id="messageinput"/>
+</div>
+<div>
+
+    <button type="button" onclick="openSocket();" >Open</button>
+</div>
+<!-- Server responses get written here -->
+<div id="messages">message</div>
+
+<!-- Script to utilise the WebSocket -->
+<script src="../node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
+<script type="text/javascript">
+
+    var messages = document.getElementById("messages");
     var socket = io.connect('http://localhost');
-    socket.on('news', function (data) {
+
+    socket.on('time', function (data) {
+        messages.innerHTML = "<br/>" + data.time;
         console.log(data);
-        socket.emit('my other event', { my: 'data' });
     });
+
 </script>
+
+</body>
+</html>
+

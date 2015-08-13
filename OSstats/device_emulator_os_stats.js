@@ -1,6 +1,6 @@
 var os = require('os');
-var SerialPort = require("serialport").SerialPort
-var serialPort = new SerialPort("/dev/pts/12",  false); // this is the openImmediately flag [default is true]
+var SerialPort = require('serialport').SerialPort
+var serialPort = new SerialPort("/dev/pts/11",  false); // this is the openImmediately flag [default is true]
 
 
 
@@ -18,7 +18,7 @@ setInterval(function(){
 },1000);
 
 
-
+/*
 setInterval(function(){
     var stat = JSON.stringify({ "Free RAM (MB)" : ((os.freemem()/1024)/1024)});
     serialPort.open(function (error) {
@@ -31,3 +31,4 @@ setInterval(function(){
         }
     );
 },500);
+    */

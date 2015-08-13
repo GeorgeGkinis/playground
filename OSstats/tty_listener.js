@@ -1,5 +1,5 @@
 var SerialPort = require("serialport").SerialPort
-var serialPort = new SerialPort("/dev/pts/8",  false); // this is the openImmediately flag [default is true]
+var serialPort = new SerialPort("/dev/pts/4",  false); // this is the openImmediately flag [default is true]
 
 serialPort.open(function (error) {
     if ( error ) {
