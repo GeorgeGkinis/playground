@@ -1,11 +1,11 @@
 var os = require('os');
 var SerialPort = require('serialport').SerialPort
-var serialPort = new SerialPort("/dev/pts/11",  false); // this is the openImmediately flag [default is true]
+var serialPort = new SerialPort("/dev/pts/13",  false); // this is the openImmediately flag [default is true]
 
 
 
 setInterval(function(){
-    var stat = JSON.stringify({"CPU 1" : os.cpus()[1].speed});
+    var stat = JSON.stringify({"CPU" : os.cpus()[1].speed});
     serialPort.open(function (error) {
 
             if ( error ) {

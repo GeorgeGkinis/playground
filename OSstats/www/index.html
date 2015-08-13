@@ -9,11 +9,14 @@
 <body>
 
 <div>
+    <!--
     <input type="text" id="messageinput"/>
+    -->
 </div>
 <div>
-
+    <!--
     <button type="button" onclick="openSocket();" >Open</button>
+    -->
 </div>
 <!-- Server responses get written here -->
 <div id="messages">message</div>
@@ -23,10 +26,10 @@
 <script type="text/javascript">
 
     var messages = document.getElementById("messages");
-    var socket = io.connect('http://localhost');
+    var socket = io.connect('http://localhost:8080');
 
     socket.on('time', function (data) {
-        messages.innerHTML = "<br/>" + data.time;
+        messages.innerHTML = "<br/>" + data.CPU;
         console.log(data);
     });
 
@@ -34,4 +37,5 @@
 
 </body>
 </html>
+
 
