@@ -12,6 +12,7 @@ setInterval(function(){
                 console.log('failed to open: '+error);
             } else {
                 serialPort.write(stat)
+                console.log(stat)
             }
         }
     );

@@ -2,9 +2,9 @@
 var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-var os = require('os');
+//var os = require('os');
 var SerialPort = require("serialport").SerialPort;
-var serialPort = new SerialPort("/dev/ttyS1",  false); // this is the openImmediately flag [default is true]
+var serialPort = new SerialPort("/dev/pts/11",  false); // this is the openImmediately flag [default is true]
 
 
 server.listen(8080);
@@ -29,10 +29,10 @@ serialPort.open(function (error) {
     } else {
         console.log('open');
         serialPort.on('data', function(data) {
-           var message = { "Pot_1" : data.toString()};
+          //var message = JSON.strdata };
 
-            io.emit('time',message);
-            //console.log(data.toString());
+            io.emit('stat',JSON.parse(data));
+            console.log(JSON.parse(data));
 
         });
     }
