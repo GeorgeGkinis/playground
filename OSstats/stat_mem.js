@@ -1,6 +1,6 @@
 var os = require('os');
 var SerialPort = require("serialport").SerialPort
-var serialPort = new SerialPort("/dev/pts/12",  false); // this is the openImmediately flag [default is true]
+var serialPort = new SerialPort("/dev/pts/11",  false); // this is the openImmediately flag [default is true]
 
 
 

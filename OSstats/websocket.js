@@ -4,7 +4,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 //var os = require('os');
 var SerialPort = require("serialport").SerialPort;
-var serialPort = new SerialPort("/dev/pts/11",  false); // this is the openImmediately flag [default is true]
+var serialPort = new SerialPort("/dev/pts/10",  false); // this is the openImmediately flag [default is true]
 
 
 server.listen(8080);
